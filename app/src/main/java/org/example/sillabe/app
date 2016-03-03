@@ -1,0 +1,32 @@
+public Sillaba()
+    {   super();
+        this.valore="a";
+        this.stile=this.MAIUSCOLO;
+
+    }
+    public Sillaba(String valore,int stile)
+    {   super();
+        this.valore="a";
+        this.stile=this.MAIUSCOLO;
+
+    }
+
+    public String getValore() {
+        return valore;
+    }
+
+    public void setValore(String valore) {
+        this.valore = valore;
+    }
+
+    public int getStile() {
+        return stile;
+    }
+
+    public void setStile(int stile) {
+        this.stile = stile;
+    }
+
+    <TableRow android:gravity="center_horizontal"
+            android:id="@id/+primariga">
+        </TableRow>
