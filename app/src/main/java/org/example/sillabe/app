@@ -30,3 +30,34 @@ public Sillaba()
     <TableRow android:gravity="center_horizontal"
             android:id="@id/+primariga">
         </TableRow>
+
+
+        TableRow row = (TableRow) findViewById(R.id.riga);
+        Sillaba s = new Sillaba(this);
+
+        s.setValore("zz");
+        s.setTextSize(40);
+        s.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSillabaCliccata(v);
+            }
+        });
+        s.setClickable(true);
+        row.addView(s);
+
+        <org.example.sillabe.Sillaba
+            android:id="@+id/sillabaDaIndovinare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:gravity="fill_horizontal|center"
+            android:padding="3sp"
+            android:text="ba"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+
+
+ <TableRow android:gravity="center">

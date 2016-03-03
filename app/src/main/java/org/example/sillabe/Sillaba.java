@@ -1,10 +1,13 @@
 package org.example.sillabe;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.widget.TextView;
 
-import java.util.Random;
+import static android.graphics.Color.GREEN;
+import static android.graphics.Color.RED;
 
 
 /**
@@ -17,39 +20,47 @@ public class Sillaba extends TextView {
     static final int PRIMA_MAIUSCOLO = 3;
     static final int CORSIVO_MINUSCOLO = 4;
     static final int CORSIVO_PRIMA_MAIUSCOLO = 5;
-    private static String[] fonemi = {"ba", "be", "bi", "bo", "bu"};
     private String valore;
 
     private int stile;
 
+    //COSTRUTTORI
     public Sillaba(Context context) {
         super(context);
-        CreaSillaba();
+        this.valore = "aa";
+        this.stile = Sillaba.MINUSCOLO;
+        this.setText(this.valore);
+        creaStyleable();
+    }
+
+    public Sillaba(Context context, String valore, int stile) {
+        super(context);
+        this.valore = valore;
+        this.stile = stile;
+        this.setText(this.valore);
+
+        creaStyleable();
+
     }
 
     public Sillaba(Context context, AttributeSet attrs) {
         super(context, attrs);
-        CreaSillaba();
+
 
     }
 
     public Sillaba(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        CreaSillaba();
+
     }
 
-    private static String fonemaCasuale() {
-        Random r = new Random();
-        int i = r.nextInt(fonemi.length - 1);
-        return fonemi[i];
+    private void creaStyleable() {
+        this.setTextSize(40);
+        this.setWidth(100);
+        this.setGravity(Gravity.CENTER);
+        this.setTextColor(Color.BLACK);
     }
 
-    //COSTRUTTORI
-    private void CreaSillaba() {
-        this.valore = fonemaCasuale();
-        this.stile = Sillaba.MAIUSCOLO;
-        this.setText(this.valore);
-    }
 
     //METODI PUBBLICI
     public String getValore() {
@@ -62,6 +73,19 @@ public class Sillaba extends TextView {
 
     }
 
+    public boolean èUgualeA(Sillaba s) {
+        return (this.valore.equals(s.valore));
+    }
+
+    public void corretta() {
+        this.setTextColor(GREEN);
+
+    }
+
+    public void errata() {
+        this.setTextColor(RED);
+
+    }
     public int getStile() {
         return stile;
     }
@@ -69,4 +93,6 @@ public class Sillaba extends TextView {
     public void setStile(int stile) {
         this.stile = stile;
     }
+
+
 }
